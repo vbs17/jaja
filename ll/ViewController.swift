@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             let audioFile = try AVAudioFile(forWriting: filePath, settings: format.settings)
        
             let inputNode = engine.inputNode!
-            inputNode.installTapOnBus(0, bufferSize: 4096, format: nil) { (buffer, when) in
+            inputNode.installTapOnBus(0, bufferSize: 4096, format: format) { (buffer, when) in
                 do {
                     try audioFile.writeFromBuffer(buffer)
                 } catch let error {
@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func stop(sender: AnyObject) {
+        engine.inputNode!.removeTapOnBus(0)
         engine.stop()
         let set = self.storyboard?.instantiateViewControllerWithIdentifier("M") as! MViewController
         set.sound = self.sound
