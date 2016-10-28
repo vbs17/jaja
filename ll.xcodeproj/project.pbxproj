@@ -12,6 +12,7 @@
 		B01281221DC374F700DA6590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01281201DC374F700DA6590 /* Main.storyboard */; };
 		B01281241DC374F700DA6590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B01281231DC374F700DA6590 /* Assets.xcassets */; };
 		B01281271DC374F700DA6590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01281251DC374F700DA6590 /* LaunchScreen.storyboard */; };
+		B012812F1DC37BAA00DA6590 /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012812E1DC37BAA00DA6590 /* MViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B01281231DC374F700DA6590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B01281261DC374F700DA6590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B01281281DC374F700DA6590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B012812E1DC37BAA00DA6590 /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				B012811C1DC374F700DA6590 /* AppDelegate.swift */,
-				B012811E1DC374F700DA6590 /* ViewController.swift */,
 				B01281201DC374F700DA6590 /* Main.storyboard */,
+				B012811E1DC374F700DA6590 /* ViewController.swift */,
+				B012812E1DC37BAA00DA6590 /* MViewController.swift */,
 				B01281231DC374F700DA6590 /* Assets.xcassets */,
 				B01281251DC374F700DA6590 /* LaunchScreen.storyboard */,
 				B01281281DC374F700DA6590 /* Info.plist */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B012811F1DC374F700DA6590 /* ViewController.swift in Sources */,
+				B012812F1DC37BAA00DA6590 /* MViewController.swift in Sources */,
 				B012811D1DC374F700DA6590 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

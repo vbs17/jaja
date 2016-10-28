@@ -14,37 +14,14 @@ class ViewController: UIViewController {
     }
     
     let engine = AVAudioEngine()
-    let player = AVAudioPlayerNode()
-    let audioEngine = AVAudioEngine()
-
+    var sound:NSURL!
     
-    func play() {
-        if let url = NSBundle.mainBundle().URLForResource("sound-file", withExtension: "wav") {
-            do {
-                let audioFile = try AVAudioFile(forReading: url)
-                audioEngine.attachNode(player)
-                let mixer = audioEngine.mainMixerNode
-
-                audioEngine.connect(player,
-                                    to: mixer,
-                                    format: audioFile.processingFormat)
-                player.scheduleFile(audioFile, atTime: nil) {
-                    print("complete")
-                }
-                try audioEngine.start()
-                player.play()
-            } catch let error {
-                print(error)
-            }
-        } else {
-            print("File not found")
-        }
-    }
     
     func record() {
         do {
             let documentDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
             let filePath = NSURL(fileURLWithPath: documentDir + "/sample.caf")
+            sound = filePath
             let format = AVAudioFormat(commonFormat: .PCMFormatFloat32  , sampleRate: 44100, channels: 1 , interleaved: true)
             let audioFile = try AVAudioFile(forWriting: filePath, settings: format.settings)
        
@@ -67,14 +44,16 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var rec: UIButton!
+    @IBAction func stop(sender: AnyObject) {
+        engine.stop()
+        let set = self.storyboard?.instantiateViewControllerWithIdentifier("M") as! MViewController
+        set.sound = self.sound
+        self.presentViewController(set, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func recGo(sender: AnyObject) {
         record()
     }
-    @IBOutlet weak var all: UIButton!
-    @IBAction func allGo(sender: AnyObject) {
-        play()
-    }
-
-}
+  }
 
