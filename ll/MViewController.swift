@@ -21,6 +21,7 @@ class MViewController: UIViewController {
     }
     
     @IBAction func play(sender: AnyObject) {
+        play()
     }
     
     
